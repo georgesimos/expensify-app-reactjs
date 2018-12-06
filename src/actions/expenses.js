@@ -49,6 +49,14 @@ export const editExpense = (id, updates) => ({
   updates
 });
 
+export const startEditExpense = (id, updates) => {
+  return (dispatch) => {
+    return database.ref(`expenses/${id}`).update(updates).then(() => {
+      console.log('Item Edit phase');
+      dispatch(editExpense(id, updates));
+    }).catch(err => console.log(err));
+  };
+}
 
 // SET_EXPENSES
 export const setExpenses = (expenses) => ({
