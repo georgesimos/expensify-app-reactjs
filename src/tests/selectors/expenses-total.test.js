@@ -3,8 +3,6 @@ import expenses from '../fixtures/expenses';
 
 const total = getExpensesTotal(expenses);
 
-console.log(total);
-
 test('should return 0 if no expenses', () => {
     const total = getExpensesTotal([]);
     expect(total).toBe(0);
